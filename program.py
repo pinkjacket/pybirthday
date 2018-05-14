@@ -1,9 +1,19 @@
+import datetime
+
 def print_header():
-    pass
+    print("-------------------------------------")
+    print("          BIRTHDAY CHECK")
+    print("-------------------------------------")
 
 
 def get_birthday():
-    pass
+    print("When were you born? ")
+    year = int(input("Year [YYYY]: "))
+    month = int(input("Month [MM]: "))
+    day = int(input("Day [DD]: "))
+
+    bday = datetime.date(year, month, day)
+    return bday
 
 
 def get_date_difference():
@@ -17,6 +27,10 @@ def print_birthday_info():
 def main():
     print_header()
     bday = get_birthday()
+    print(bday)
     now = None
     days = get_date_difference(bday, now)
     print_birthday_info(days)
+
+
+main()
