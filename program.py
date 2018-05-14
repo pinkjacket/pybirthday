@@ -16,20 +16,26 @@ def get_birthday():
     return bday
 
 
-def get_date_difference():
-    pass
+def get_date_difference(original, target):
+    year = datetime.date(target.year, original.month, original.day)
+    dt = year - target
+    return dt.days
 
 
-def print_birthday_info():
-    pass
+def print_birthday_info(days):
+    if days < 0:
+        print("You've already had your birthday this year, {} days ago. Hope it was a good one!".format(-days))
+    elif days > 0:
+        print("Your birthday's in {} days!".format(days))
+    else:
+        print("Happy Birthday!")
 
 
 def main():
     print_header()
     bday = get_birthday()
-    print(bday)
-    now = None
-    days = get_date_difference(bday, now)
+    today = datetime.date.today()
+    days = get_date_difference(bday, today)
     print_birthday_info(days)
 
 
